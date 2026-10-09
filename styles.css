@@ -123,10 +123,13 @@ body {
 
 /* ── Links ──────────────────────────────────────── */
 .links { display: flex; flex-direction: column; gap: 6px; margin: 0 0 16px; }
-.link { color: var(--accent-2); font-weight: 600; word-break: break-all; }
+.link { color: var(--accent-2); font-weight: 600; }
+.link-seg { white-space: nowrap; }
 .link:hover { color: #9cc4ff; }
 .link-label { color: var(--muted); font-size: 14px; }
-.layout-hero .links { margin-top: 24px; }
+.layout-hero .links { margin-top: 24px; align-items: center; }
+.layout-hero .link-label { font-size: clamp(16px, 1.4vw, 20px); }
+.layout-hero .link { font-size: clamp(20px, 2vw, 28px); text-underline-offset: 4px; }
 
 /* ── Prompt boxes ───────────────────────────────── */
 .prompt { margin: 0 0 16px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); overflow: hidden; }

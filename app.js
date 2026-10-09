@@ -85,7 +85,12 @@
     links.forEach((link) => {
       const { label, url } = typeof link === "string" ? { url: link } : link;
       if (label) wrap.append(el("span", "link-label", label));
-      const a = el("a", "link", url);
+      const a = el("a", "link");
+      // Each path segment is unbreakable; <wbr> after "/" is the only wrap point.
+      url.split(/(?<=\/)/).forEach((part, i) => {
+        if (i) a.append(document.createElement("wbr"));
+        a.append(el("span", "link-seg", part));
+      });
       a.href = url;
       a.target = "_blank";
       a.rel = "noopener";
