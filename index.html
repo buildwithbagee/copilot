@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>First Steps with the GitHub Copilot App · Dev Days</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#slide">Skip to slide</a>
+
+  <header class="topbar">
+    <button id="tocToggle" class="btn ghost" aria-expanded="false" aria-controls="toc">&#9776; Contents</button>
+    <p class="deck-title">First Steps with the GitHub Copilot App</p>
+    <p id="counter" class="counter" aria-live="polite"></p>
+  </header>
+
+  <nav id="toc" class="toc" aria-label="Slide list" hidden>
+    <ol id="tocList"></ol>
+  </nav>
+
+  <main id="slide" class="slide" tabindex="-1" aria-live="polite"></main>
+
+  <footer class="bottombar">
+    <button id="prev" class="btn" aria-label="Previous slide">← Prev</button>
+    <div class="progress" role="progressbar" aria-label="Deck progress" aria-valuemin="1">
+      <span id="progressFill"></span>
+    </div>
+    <button id="next" class="btn primary" aria-label="Next slide">Next →</button>
+  </footer>
+
+  <dialog id="lightbox" aria-label="Enlarged image">
+    <button class="btn close" id="lightboxClose" aria-label="Close image">Close &times;</button>
+    <img id="lightboxImg" alt="">
+  </dialog>
+
+  <script src="slides.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
