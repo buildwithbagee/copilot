@@ -1,7 +1,8 @@
 // Slide content only — rendering lives in app.js (separation of concerns).
 // Order mirrors the original "GitHub Copilot App.pptx" deck exactly.
 // Shape: { section, title, lead?, links?: [url | {label, url}], prompts?: [{label?, text}], images?: [{src, alt}], layout?,
-//          card?: {heading, items[]}, flow?: {heading, steps: [{label, tone}], note?} }
+//          card?: {heading, items[]}, flow?: {heading, steps: [{label, tone}], note?},
+//          qr?: {src, alt, caption?} }
 // card items and flow notes support `code` and **bold**.
 
 const img = (file, alt) => ({ src: `images/${file}`, alt });
@@ -20,7 +21,7 @@ window.SLIDES = [
   {
     section: 0, layout: "hero", title: "GitHub Dev Days",
     links: [{ label: "Follow along with these slides:", url: "https://buildwithbagee.github.io/copilot/" }],
-    images: [img("image2.png", "GitHub Octocat logo above the words Dev Days")],
+    qr: { src: "images/qr-slides.svg", alt: "QR code linking to https://buildwithbagee.github.io/copilot/", caption: "Scan to open on your phone" },
   },
   {
     section: 0, layout: "hero", title: "First Steps with the GitHub Copilot App",

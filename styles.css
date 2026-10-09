@@ -87,6 +87,14 @@ body {
 .layout-hero, .layout-divider { grid-template-columns: 1fr; justify-items: center; text-align: center; align-content: safe center; }
 .layout-hero .images { max-width: 760px; width: 100%; }
 .layout-hero .img-btn img { max-height: calc(100vh - var(--bar) * 2 - 340px); min-height: 160px; }
+
+/* QR: white tile (quiet zone baked into the SVG) so phones scan it against the dark theme */
+.qr { margin: 0; display: grid; justify-items: center; gap: 10px; }
+.qr img {
+  display: block; background: #fff; border-radius: 12px;
+  width: clamp(160px, calc(100vh - var(--bar) * 2 - 360px), 320px); height: auto;
+}
+.qr figcaption { color: var(--muted); font-size: clamp(14px, 1.2vw, 18px); }
 .layout-divider .title, .layout-hero .title {
   font-size: clamp(36px, 6vw, 72px);
   background: linear-gradient(90deg, var(--accent-2), var(--accent));

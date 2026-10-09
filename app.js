@@ -79,6 +79,16 @@
     return wrap;
   };
 
+  const buildQr = ({ src, alt, caption }) => {
+    const fig = el("figure", "qr");
+    const pic = el("img");
+    pic.src = src;
+    pic.alt = alt;
+    fig.append(pic);
+    if (caption) fig.append(el("figcaption", null, caption));
+    return fig;
+  };
+
   const buildLinks = (links) => {
     const wrap = el("p", "links");
     // Each link is either a URL string or { label, url } for a caption above it.
@@ -114,6 +124,7 @@
     root.append(text);
     if (s.card) root.append(buildCard(s.card));
     if (s.flow) root.append(buildFlow(s.flow));
+    if (s.qr) root.append(buildQr(s.qr));
     if (s.images?.length) root.append(buildImages(s.images));
     root.append(el("span", "slide-num", `${current + 1}`));
 
