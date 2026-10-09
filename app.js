@@ -47,6 +47,38 @@
     return grid;
   };
 
+  // Tiny inline markup: `code` and **bold**. Builds DOM nodes, never innerHTML.
+  const rich = (tag, cls, text) => {
+    const node = el(tag, cls);
+    text.split(/(`[^`]+`|\*\*[^*]+\*\*)/).filter(Boolean).forEach((part) => {
+      if (part.startsWith("`")) node.append(el("code", null, part.slice(1, -1)));
+      else if (part.startsWith("**")) node.append(el("strong", null, part.slice(2, -2)));
+      else node.append(part);
+    });
+    return node;
+  };
+
+  const buildCard = ({ heading, items }) => {
+    const card = el("section", "card");
+    card.append(el("h3", "card-heading", heading));
+    const ul = el("ul", "card-list");
+    items.forEach((item) => ul.append(rich("li", null, item)));
+    card.append(ul);
+    return card;
+  };
+
+  const buildFlow = ({ heading, steps, note }) => {
+    const wrap = el("section", "flow");
+    wrap.append(el("h3", "flow-heading", heading));
+    const body = el("div", "flow-body");
+    const ol = el("ol", "flow-steps");
+    steps.forEach(({ label, tone }) => ol.append(el("li", `flow-step tone-${tone}`, label)));
+    body.append(ol);
+    if (note) body.append(rich("p", "flow-note", note));
+    wrap.append(body);
+    return wrap;
+  };
+
   const buildLinks = (links) => {
     const wrap = el("p", "links");
     links.forEach((url) => {
@@ -72,6 +104,8 @@
     if (s.links) text.append(buildLinks(s.links));
     (s.prompts || []).forEach((p) => text.append(buildPrompt(p)));
     root.append(text);
+    if (s.card) root.append(buildCard(s.card));
+    if (s.flow) root.append(buildFlow(s.flow));
     if (s.images?.length) root.append(buildImages(s.images));
     root.append(el("span", "slide-num", `${current + 1}`));
 

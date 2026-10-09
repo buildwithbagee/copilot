@@ -1,6 +1,8 @@
 // Slide content only — rendering lives in app.js (separation of concerns).
 // Order mirrors the original "GitHub Copilot App.pptx" deck exactly.
-// Shape: { section, title, lead?, links?, prompts?: [{label?, text}], images?: [{src, alt}], layout? }
+// Shape: { section, title, lead?, links?, prompts?: [{label?, text}], images?: [{src, alt}], layout?,
+//          card?: {heading, items[]}, flow?: {heading, steps: [{label, tone}], note?} }
+// card items and flow notes support `code` and **bold**.
 
 const img = (file, alt) => ({ src: `images/${file}`, alt });
 
@@ -22,7 +24,33 @@ window.SLIDES = [
   {
     section: 0, layout: "hero", title: "First Steps with the GitHub Copilot App",
     lead: "Workshop",
-    images: [img("image9.png", "GitHub Copilot App workshop cover image")],
+  },
+  {
+    section: 0, layout: "overview", title: "What we\u2019re building",
+    lead: "A Space Quiz. It\u2019s tiny on purpose, so we can focus on the workflow, not the code.",
+    card: {
+      heading: "The app",
+      items: [
+        "10 space questions",
+        "Progress bar + score counter",
+        "Green for correct \u00b7 red shake for wrong",
+        "Results screen with emoji reaction",
+        "Single `index.html` with zero dependencies",
+      ],
+    },
+    flow: {
+      heading: "The real goal: the full dev loop",
+      steps: [
+        { label: "Prompt", tone: "purple" },
+        { label: "Test", tone: "purple" },
+        { label: "Publish", tone: "blue" },
+        { label: "Issue", tone: "green" },
+        { label: "Plan", tone: "green" },
+        { label: "PR + review", tone: "green" },
+        { label: "Automate", tone: "pink" },
+      ],
+      note: "Same loop you\u2019d use on a real codebase, with the agent doing the typing and **you directing and verifying**.",
+    },
   },
 
   // ── Step 0 · Setup ───────────────────────────────────────

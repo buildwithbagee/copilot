@@ -93,6 +93,33 @@ body {
 }
 .layout-divider .eyebrow { font-size: 18px; }
 
+/* Overview layout: title row on top, app card + dev-loop flow side by side */
+.slide.layout-overview { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); justify-content: stretch; align-content: center; }
+.layout-overview .slide-text { grid-column: 1 / -1; }
+.layout-overview .lead { font-size: 20px; }
+
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 32px; padding: 28px 36px; }
+.card-heading { margin: 0 0 12px; text-align: center; color: var(--accent); font-size: 20px; }
+.card-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 14px; font-size: clamp(17px, 1.6vw, 22px); }
+.card-list li { position: relative; padding-left: 28px; }
+.card-list li::before { content: "\25B8"; position: absolute; left: 4px; color: var(--accent); }
+.card-list code { font: .95em ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; color: #ff7b72; }
+
+.flow-heading { margin: 0 0 14px; color: var(--accent-2); font-size: 20px; }
+.flow-body { display: grid; grid-template-columns: minmax(150px, 220px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.flow-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 22px; }
+.flow-step { position: relative; padding: 9px 12px; border-radius: 8px; text-align: center; font-weight: 700; color: #fff; }
+.flow-step:not(:last-child)::after {
+  content: "\2193"; position: absolute; left: 50%; bottom: -21px; transform: translateX(-50%);
+  color: var(--muted); font-weight: 400; line-height: 1;
+}
+.tone-purple { background: #6d4fd8; }
+.tone-blue { background: #2563d6; }
+.tone-green { background: #2e7d3e; }
+.tone-pink { background: #b0407f; }
+.flow-note { margin: 0; color: var(--muted); font-size: clamp(16px, 1.5vw, 20px); }
+.flow-note strong { color: var(--ink); }
+
 /* ── Links ──────────────────────────────────────── */
 .links { display: flex; flex-direction: column; gap: 6px; margin: 0 0 16px; }
 .link { color: var(--accent-2); font-weight: 600; word-break: break-all; }
@@ -149,7 +176,8 @@ dialog#lightbox::backdrop { background: rgba(0,0,0,.85); }
 /* ── Responsive ─────────────────────────────────── */
 @media (max-width: 900px) {
   body { overflow: auto; }
-  .slide { grid-template-columns: 1fr; }
+  .slide, .slide.layout-overview { grid-template-columns: 1fr; }
+  .flow-body { grid-template-columns: 1fr; }
   .images.count-3 { grid-template-columns: 1fr 1fr; }
   .deck-title { display: none; }
   .img-btn img, .images.count-4 .img-btn img { max-height: none; }
