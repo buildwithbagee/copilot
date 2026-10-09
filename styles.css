@@ -124,6 +124,8 @@ body {
 .links { display: flex; flex-direction: column; gap: 6px; margin: 0 0 16px; }
 .link { color: var(--accent-2); font-weight: 600; word-break: break-all; }
 .link:hover { color: #9cc4ff; }
+.link-label { color: var(--muted); font-size: 14px; }
+.layout-hero .links { margin-top: 24px; }
 
 /* ── Prompt boxes ───────────────────────────────── */
 .prompt { margin: 0 0 16px; background: var(--surface); border: 1px solid var(--line); border-left: 4px solid var(--accent); border-radius: var(--radius); overflow: hidden; }

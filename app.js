@@ -81,7 +81,10 @@
 
   const buildLinks = (links) => {
     const wrap = el("p", "links");
-    links.forEach((url) => {
+    // Each link is either a URL string or { label, url } for a caption above it.
+    links.forEach((link) => {
+      const { label, url } = typeof link === "string" ? { url: link } : link;
+      if (label) wrap.append(el("span", "link-label", label));
       const a = el("a", "link", url);
       a.href = url;
       a.target = "_blank";

@@ -1,6 +1,6 @@
 // Slide content only — rendering lives in app.js (separation of concerns).
 // Order mirrors the original "GitHub Copilot App.pptx" deck exactly.
-// Shape: { section, title, lead?, links?, prompts?: [{label?, text}], images?: [{src, alt}], layout?,
+// Shape: { section, title, lead?, links?: [url | {label, url}], prompts?: [{label?, text}], images?: [{src, alt}], layout?,
 //          card?: {heading, items[]}, flow?: {heading, steps: [{label, tone}], note?} }
 // card items and flow notes support `code` and **bold**.
 
@@ -24,6 +24,10 @@ window.SLIDES = [
   {
     section: 0, layout: "hero", title: "First Steps with the GitHub Copilot App",
     lead: "Workshop",
+    links: [{
+      label: "This is the original tutorial:",
+      url: "https://github-samples.github.io/copilot-workshops/first-steps/copilot-app/",
+    }],
   },
   {
     section: 0, layout: "overview", title: "What we\u2019re building",
