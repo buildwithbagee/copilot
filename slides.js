@@ -19,6 +19,7 @@ window.SLIDES = [
   // ── Welcome ──────────────────────────────────────────────
   {
     section: 0, layout: "hero", title: "GitHub Dev Days",
+    links: [{ label: "Follow along with these slides:", url: "https://buildwithbagee.github.io/copilot/" }],
     images: [img("image2.png", "GitHub Octocat logo above the words Dev Days")],
   },
   {

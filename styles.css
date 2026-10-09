@@ -84,8 +84,9 @@ body {
 }
 
 /* Hero + divider layouts */
-.layout-hero, .layout-divider { grid-template-columns: 1fr; justify-items: center; text-align: center; align-content: center; }
+.layout-hero, .layout-divider { grid-template-columns: 1fr; justify-items: center; text-align: center; align-content: safe center; }
 .layout-hero .images { max-width: 760px; width: 100%; }
+.layout-hero .img-btn img { max-height: calc(100vh - var(--bar) * 2 - 340px); min-height: 160px; }
 .layout-divider .title, .layout-hero .title {
   font-size: clamp(36px, 6vw, 72px);
   background: linear-gradient(90deg, var(--accent-2), var(--accent));
