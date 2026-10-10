@@ -19,6 +19,12 @@ window.SECTIONS = [
 window.SLIDES = [
   // ── Welcome ──────────────────────────────────────────────
   {
+    section: 0, layout: "hero", title: "About Me",
+    lead: "Bageerathan Nadaraja Nadar \u00b7 Software Architect",
+    links: [{ label: "Connect with me on LinkedIn:", url: "https://www.linkedin.com/in/bageerathan/" }],
+    qr: { src: "images/qr-linkedin.svg", alt: "QR code linking to https://www.linkedin.com/in/bageerathan/", caption: "Scan to connect on LinkedIn" },
+  },
+  {
     section: 0, layout: "hero", title: "GitHub Dev Days",
     links: [{ label: "Follow along with these slides:", url: "https://buildwithbagee.github.io/copilot/" }],
     qr: { src: "images/qr-slides.svg", alt: "QR code linking to https://buildwithbagee.github.io/copilot/", caption: "Scan to open on your phone" },
